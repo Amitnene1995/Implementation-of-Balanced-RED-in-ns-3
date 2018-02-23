@@ -224,6 +224,9 @@ TypeId RedQueueDisc::GetTypeId (void)
                    BooleanValue (true),
                    MakeBooleanAccessor (&RedQueueDisc::m_useHardDrop),
                    MakeBooleanChecker ())
+
+
+    
   ;
 
   return tid;
@@ -937,6 +940,8 @@ RedQueueDisc::CheckConfig (void)
           queue->SetMaxBytes (m_queueLimit);
         }
       AddInternalQueue (queue);
+
+      
     }
 
   if (GetNInternalQueues () != 1)

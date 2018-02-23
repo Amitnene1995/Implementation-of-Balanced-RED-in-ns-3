@@ -33,6 +33,7 @@
 #include "ns3/udp-header.h"
 #include "ns3/uinteger.h"
 #include "ns3/pointer.h"
+#include "ns3/packet.h"
 
 using namespace ns3;
 

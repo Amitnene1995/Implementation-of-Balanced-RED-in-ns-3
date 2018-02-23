@@ -14,6 +14,7 @@ def build(bld):
       'model/queue-disc.cc',
       'model/pfifo-fast-queue-disc.cc',
       'model/red-queue-disc.cc',
+      'model/bred-queue-disc.cc',
       'model/codel-queue-disc.cc',
       'model/fq-codel-queue-disc.cc',
       'model/pie-queue-disc.cc',
@@ -25,6 +26,7 @@ def build(bld):
     module_test = bld.create_ns3_module_test_library('traffic-control')
     module_test.source = [
       'test/red-queue-disc-test-suite.cc',
+      'test/bred-queue-disc-test-suite.cc',
       'test/codel-queue-disc-test-suite.cc',
       'test/adaptive-red-queue-disc-test-suite.cc',
       'test/pie-queue-disc-test-suite.cc',
@@ -39,6 +41,7 @@ def build(bld):
       'model/queue-disc.h',
       'model/pfifo-fast-queue-disc.h',
       'model/red-queue-disc.h',
+      'model/bred-queue-disc.h',
       'model/codel-queue-disc.h',
       'model/fq-codel-queue-disc.h',
       'model/pie-queue-disc.h',
