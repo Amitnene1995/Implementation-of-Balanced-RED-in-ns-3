@@ -222,8 +222,8 @@ Ipv4Header hdr,hdr2,hdr3,hdr4,hdr5,hdr6,hdr7,hdr8,hdr9,hdr10;
 
   QueueDisc::Stats st = queue->GetStats ();
 
-  uint32_t test1 = st.GetNDroppedBytes (BredQueueDisc::FORCED_DROP)+st.GetNDroppedBytes (BredQueueDisc::UNFORCED_DROP)+st.GetNDroppedBytes(QueueDisc::INTERNAL_QUEUE_DROP);
-// Second Scenario
+  uint32_t test3 = st.GetNDroppedBytes (BredQueueDisc::FORCED_DROP)+st.GetNDroppedBytes (BredQueueDisc::UNFORCED_DROP)+st.GetNDroppedBytes(QueueDisc::INTERNAL_QUEUE_DROP);
+// Test 4
   
   queue->Initialize();
   NS_TEST_EXPECT_MSG_EQ (queue->SetAttributeFailSafe ("QueueLimit", UintegerValue (10000)), true,
@@ -239,8 +239,8 @@ Ipv4Header hdr,hdr2,hdr3,hdr4,hdr5,hdr6,hdr7,hdr8,hdr9,hdr10;
 
 
   st = queue->GetStats ();
-  uint32_t test2 = st.GetNDroppedBytes (BredQueueDisc::FORCED_DROP)+st.GetNDroppedBytes (BredQueueDisc::UNFORCED_DROP)+st.GetNDroppedBytes(QueueDisc::INTERNAL_QUEUE_DROP);
-  NS_TEST_EXPECT_MSG_EQ ((test2>test1), true, "Packet Dequeued");
+  uint32_t test4 = st.GetNDroppedBytes (BredQueueDisc::FORCED_DROP)+st.GetNDroppedBytes (BredQueueDisc::UNFORCED_DROP)+st.GetNDroppedBytes(QueueDisc::INTERNAL_QUEUE_DROP);
+  NS_TEST_EXPECT_MSG_EQ ((test4>test3), true, "Drops in test4 should be greater than test3");
 
 
 //test 5
@@ -268,7 +268,7 @@ Ipv4Header hdr,hdr2,hdr3,hdr4,hdr5,hdr6,hdr7,hdr8,hdr9,hdr10;
   
   uint32_t test5 = st.GetNDroppedBytes (BredQueueDisc::FORCED_DROP)+st.GetNDroppedBytes (BredQueueDisc::UNFORCED_DROP)+st.GetNDroppedBytes(QueueDisc::INTERNAL_QUEUE_DROP);
    
-  NS_TEST_EXPECT_MSG_EQ ((test5>test1), true, "Packet Dequeued");
+  NS_TEST_EXPECT_MSG_EQ ((test5>test3), true, "Drops in test5 should be greater than test5");
 
   
 }
